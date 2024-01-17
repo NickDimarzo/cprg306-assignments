@@ -1,4 +1,4 @@
-import {StudentInfo} from "./student-info.js";
+import StudentInfo from "./student-info.js";
 
 export default function Page() {
   return (
