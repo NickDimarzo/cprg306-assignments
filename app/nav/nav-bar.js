@@ -1,4 +1,5 @@
 import NavItem from "./nav-item";
+import Link from "next/link";
 
 export default function NavBar() { 
     
@@ -20,7 +21,9 @@ export default function NavBar() {
     return (
         <nav className=" bg-slate-800">
             <ul className="flex ">
-                <NavItem {...home} />   
+                <li className="bg-slate-900 m-1 p-2 text-lg font-semibold rounded-lg">
+                    <Link href="/">Home</Link>
+                </li>  
                 <NavItem {...week2} />  
                 <NavItem {...week3} />    
             </ul>
