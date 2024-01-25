@@ -1,9 +1,10 @@
 import StudentInfo from "./student-info.js";
+import NavBar from "../nav/nav-bar";
 
 export default function Page() {
   return (
     <main> 
-        <h1>Shopping List</h1>
+        <NavBar/>
         <StudentInfo/>
     </main>
   );
