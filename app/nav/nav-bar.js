@@ -26,7 +26,7 @@ export default function NavBar() {
     return (
         <nav className=" bg-slate-800">
             <ul className="flex ">
-                <li className="bg-slate-900 m-1 p-2 text-lg font-semibold rounded-lg">
+                <li className="bg-slate-700 m-1 p-2 text-xl font-semibold rounded-lg">
                     <Link href="/">Home</Link>
                 </li>  
                 <NavItem {...week2} />  
