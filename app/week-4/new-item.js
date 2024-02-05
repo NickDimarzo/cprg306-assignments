@@ -53,7 +53,7 @@ export default function NewItem() {
         </select>
       </div>
       <div className="m-4 mb-6 flex justify-center">
-        <button type="submit" onClick={handleSubmit} className=" bg-slate-400 px-10 py-2 rounded-lg text-white border-2 border-slate-400 hover:border-green-500 ">
+        <button type="submit" onClick={handleSubmit} className=" bg-slate-400 px-10 py-2 rounded-lg text-white border-2 border-slate-400 hover:border-green-500 hover:text-green-500 ">
           Add
         </button>
       </div>
