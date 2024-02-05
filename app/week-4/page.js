@@ -3,9 +3,13 @@ import NewItem from "./new-item";
 
 export default function Page() {
     return (
-      <main className = "bg-slate-700"> 
-        <NavBar />
-        <NewItem />
-      </main>
+      <body>
+        <header>
+          <NavBar />
+        </header>
+        <main className="flex justify-center w-full">
+          <NewItem />
+        </main>
+      </body>
     );
   }

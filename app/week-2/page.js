@@ -3,9 +3,13 @@ import NavBar from "../nav/nav-bar";
 
 export default function Page() {
   return (
-    <main> 
-        <NavBar/>
-        <StudentInfo/>
-    </main>
+    <body>
+      <header>
+      <NavBar/>
+      </header>
+      <main> 
+      <StudentInfo/>
+      </main>
+    </body>
   );
 }

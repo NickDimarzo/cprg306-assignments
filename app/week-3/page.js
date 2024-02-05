@@ -3,10 +3,15 @@ import Link from "next/link";
 import NavBar from "../nav/nav-bar";
 
 export default function Page() {
-    return (
-      <main className = "bg-slate-700"> 
+  return (
+    <body>
+      <header>
         <NavBar />
+      </header>
+      <main className="bg-slate-700">
         <ItemList />
+        
       </main>
-    );
+    </body>
+  );
 }
