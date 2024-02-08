@@ -7,7 +7,7 @@ export default function Page() {
         <header>
           <NavBar />
         </header>
-        <main className="flex justify-center w-full">
+        <main className="flex w-full">
           <ItemList />
         </main>
       </body>
