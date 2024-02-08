@@ -4,7 +4,7 @@ import items from "./items.json";
 import { useState } from "react";
 
 export default function ItemList() {
-  
+
   //state to keep track of the sortBy value
   const [sortBy, setSortBy] = useState("name");
 
@@ -19,8 +19,7 @@ export default function ItemList() {
     return 0;
   });
 
-  //state of an array of just the categories
-  //only add a category to the array if it is not already in the array
+  //array of unique categories
   const categories = items.reduce((acc, item) => {
     if (!acc.includes(item.category)) {
       acc.push(item.category);
@@ -41,7 +40,8 @@ export default function ItemList() {
           <Item {...item} />
         </li>
       ));
-    } else {
+    } 
+    else {
       return categories.map((category) => (
         <li key={category}>
           <h2 className="font-bold text-2xl m-1">
@@ -60,27 +60,29 @@ export default function ItemList() {
   return (
     <div>
       <h1 className="font-bold text-3xl m-1">Shopping List</h1>
-      <div className="flex justify-center">
+      <div className="flex">
         <button
           onClick={() => setSortBy("name")}
-          className="bg-slate-400 px-10 py-2 rounded-lg text-white border-2 border-slate-400 hover:border-green-500 hover:text-green-500"
+          className="bg-slate-400 px-8 py-2 rounded-lg text-white border-2 border-slate-400 hover:border-green-500 hover:text-green-500 m-1 font-bold"
         >
           Sort by Name
         </button>
         <button
           onClick={() => setSortBy("category")}
-          className="bg-slate-400 px-10 py-2 rounded-lg text-white border-2 border-slate-400 hover:border-green-500 hover:text-green-500"
+          className="bg-slate-400 px-8 py-2 rounded-lg text-white border-2 border-slate-400 hover:border-green-500 hover:text-green-500 m-1 font-bold"
         >
           Sort by Category
         </button>
-        <button
+      </div>
+      <div className="flex">
+      <button
           onClick={() => setSortBy("grouped")}
-          className="bg-slate-400 px-10 py-2 rounded-lg text-white border-2 border-slate-400 hover:border-green-500 hover:text-green-500"
+          className="bg-slate-400 py-2 rounded-lg text-white border-2 border-slate-400 hover:border-green-500 hover:text-green-500 w-full m-1 font-bold"
         >
-          Sort by Grouped Category
+          Group Categories
         </button>
       </div>
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap justify-center ">
         <ul>{listDivide()}</ul>
       </div>
     </div>
