@@ -28,16 +28,22 @@ export default function NavBar() {
         link: "week-5",
      };
 
+     const week6 = {
+        name: "Week 6",
+        link: "week-6",
+     };
+
     return (
         <nav className=" bg-slate-800">
             <ul className="flex ">
-                <li className="bg-slate-700 m-1 p-2 text-xl font-semibold rounded-lg">
+                <li className="bg-slate-700 m-1 p-2 text-xl font-semibold rounded-lg border-2 border-slate-700  hover:border-green-500 hover:text-green-500">
                     <Link href="/">Home</Link>
                 </li>  
                 <NavItem {...week2} />  
                 <NavItem {...week3} />  
                 <NavItem {...week4} />  
                 <NavItem {...week5} />
+                <NavItem {...week6} />
             </ul>
         </nav>   
     )
