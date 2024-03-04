@@ -9,13 +9,19 @@ export default function NewItem() {
   function handleSubmit(event) {
     event.preventDefault();
     console.log({ name, quantity, category });
-    alert(`ITEM ADDED: ${name} - Quantity: ${quantity} - Category: ${category}`);
+    alert(
+      `ITEM ADDED: ${name} - Quantity: ${quantity} - Category: ${category}`
+    );
   }
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="p-2 m-4 bg-slate-900 text-black max-w-sm w-full flex-row border-2 rounded-lg" >
+      className="p-2 m-4 bg-slate-900 text-black max-w-sm w-full flex-row border-2 rounded-lg"
+    >
+      <div className="flex justify-center">
+        <h1 className="font-bold text-3xl m-1">Add Item</h1>
+      </div>
       <div className="m-4">
         <input
           type="text"
@@ -37,7 +43,7 @@ export default function NewItem() {
         <select
           value={category}
           onChange={(event) => setCategory(event.target.value)}
-            className=" w-full p-2 rounded-lg"
+          className=" w-full p-2 rounded-lg"
         >
           <option value="Produce">Produce</option>
           <option value="Dairy">Dairy</option>
@@ -53,7 +59,11 @@ export default function NewItem() {
         </select>
       </div>
       <div className="m-4 mb-6 flex justify-center">
-        <button type="submit" onClick={handleSubmit} className=" bg-slate-400 px-10 py-2 rounded-lg text-white border-2 border-slate-400 hover:border-green-500 hover:text-green-500 ">
+        <button
+          type="submit"
+          onClick={handleSubmit}
+          className=" bg-slate-400 px-10 py-2 rounded-lg text-white border-2 border-slate-400 hover:border-green-500 hover:text-green-500 "
+        >
           Add
         </button>
       </div>

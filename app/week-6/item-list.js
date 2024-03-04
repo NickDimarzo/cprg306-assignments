@@ -1,10 +1,8 @@
 "use client";
 import Item from "./item";
-import items from "./items.json";
 import { useState } from "react";
 
-export default function ItemList() {
-
+export default function ItemList({items, onDelete}) {
   //state to keep track of the sortBy value
   const [sortBy, setSortBy] = useState("name");
 
@@ -37,11 +35,10 @@ export default function ItemList() {
     if (sortBy === "name" || sortBy === "category") {
       return items.map((item) => (
         <li key={item.id}>
-          <Item {...item} />
+          <Item {...item} onDelete={onDelete} />
         </li>
       ));
-    } 
-    else {
+    } else {
       return categories.map((category) => (
         <li key={category}>
           <h2 className="font-bold text-2xl m-1">
@@ -50,7 +47,7 @@ export default function ItemList() {
           {items
             .filter((item) => item.category === category)
             .map((item) => (
-              <Item key={item.id} {...item} />
+              <Item key={item.id} {...item} onDelete={onDelete} />
             ))}
         </li>
       ));
@@ -58,24 +55,26 @@ export default function ItemList() {
   }
 
   return (
-    <div>
-      <h1 className="font-bold text-3xl m-1">Shopping List</h1>
+    <div className="p-2 m-4 bg-slate-900 w-full flex-row border-2 rounded-lg ">
+      <div className="flex justify-center">
+        <h1 className="font-bold text-3xl m-1">Shopping List</h1>
+      </div>
       <div className="flex">
         <button
           onClick={() => setSortBy("name")}
-          className="bg-slate-400 px-8 py-2 rounded-lg text-white border-2 border-slate-400 hover:border-green-500 hover:text-green-500 m-1 font-bold"
+          className="bg-slate-400 px-8 py-2 rounded-lg text-white border-2 border-slate-400 hover:border-green-500 hover:text-green-500 m-1 font-bold w-full"
         >
           Sort by Name
         </button>
         <button
           onClick={() => setSortBy("category")}
-          className="bg-slate-400 px-8 py-2 rounded-lg text-white border-2 border-slate-400 hover:border-green-500 hover:text-green-500 m-1 font-bold"
+          className="bg-slate-400 px-8 py-2 rounded-lg text-white border-2 border-slate-400 hover:border-green-500 hover:text-green-500 m-1 font-bold w-full"
         >
           Sort by Category
         </button>
       </div>
       <div className="flex">
-      <button
+        <button
           onClick={() => setSortBy("grouped")}
           className="bg-slate-400 py-2 rounded-lg text-white border-2 border-slate-400 hover:border-green-500 hover:text-green-500 w-full m-1 font-bold"
         >
