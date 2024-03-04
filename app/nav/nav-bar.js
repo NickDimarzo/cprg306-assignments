@@ -33,6 +33,11 @@ export default function NavBar() {
         link: "week-6",
      };
 
+     const week7 = {
+        name: "Week 7",
+        link: "week-7",
+     };
+
     return (
         <nav className=" bg-slate-800">
             <ul className="flex ">
@@ -44,6 +49,7 @@ export default function NavBar() {
                 <NavItem {...week4} />  
                 <NavItem {...week5} />
                 <NavItem {...week6} />
+                <NavItem {...week7} />
             </ul>
         </nav>   
     )
