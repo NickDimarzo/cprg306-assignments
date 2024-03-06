@@ -15,22 +15,36 @@ export default function MealIdeas({ingredient}) {
     setMeals(mealIdeas);
     }
 
+    function checkForMeals()
+    {
+        if (meals === null || ingredient === "")
+        {
+            return <li>No Meals Available</li>
+        }
+        else
+        {
+            return meals.map((meal, index) => (
+                <li key={index} className="p-2 m-4 bg-slate-800 max-w-sm border-2 border-slate-800 hover:border-orange-400 hover:border-2">
+                    <p>
+                        {meal.strMeal}
+                    </p>  
+                </li>
+            ))
+        }
+    }
+
     useEffect(() => {
         loadMealIdeas()
     }, [ingredient])
 
     return (
-        <div>
-            <h1>Meal Ideas</h1>
+        <div className="p-2 m-4 ml-8 bg-slate-900 max-w-sm w-full flex-row border-2 rounded-lg">
+            <div className="flex - justify-center">
+                <h1 className="font-bold text-3xl m-1">Meal Ideas</h1>
+            </div>
+            
             <ul>
-                {meals.map((meal, index) => (
-                    <li key={index}>
-                        <p>
-                            {meal.strMeal}
-                        </p>
-                        <img src={meal.strMealThumb} alt={meal.strMeal} />
-                    </li>
-                ))}
+                {checkForMeals()}
             </ul>
         </div>
     )
