@@ -29,7 +29,7 @@ export default function NewItem({onAddItem}) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="p-2 m-4 bg-slate-900 text-black max-w-sm w-full flex-row border-2 rounded-lg"
+      className="p-2 m-4 bg-slate-900 text-black w-full flex-row border-2 rounded-lg"
     >
       <div className="flex justify-center">
         <h1 className="font-bold text-3xl m-1 text-white">Add Item</h1>

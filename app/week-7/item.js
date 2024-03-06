@@ -10,7 +10,7 @@ export default function Item({
 
   return (
     <div
-      className="p-2 m-4 bg-slate-800 max-w-sm"
+      className="p-2 m-4 bg-slate-800 max-w-sm border-2 border-slate-800 hover:border-orange-400 hover:border-2"
       onClick={() => onSelect(id)}
     >
       <h2 className="font-bold text-2xl">{name}</h2>

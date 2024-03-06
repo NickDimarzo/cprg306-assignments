@@ -2,7 +2,7 @@
 import Item from "./item";
 import { useState } from "react";
 
-export default function ItemList({items, onDelete, onItemSelect}) {
+export default function ItemList({items, onDelete, onSelect}) {
   //state to keep track of the sortBy value
   const [sortBy, setSortBy] = useState("name");
 
@@ -35,7 +35,7 @@ export default function ItemList({items, onDelete, onItemSelect}) {
     if (sortBy === "name" || sortBy === "category") {
       return items.map((item) => (
         <li key={item.id}>
-          <Item {...item} onDelete={onDelete} onSelect={onItemSelect}/>
+          <Item {...item} onDelete={onDelete} onSelect={onSelect}/>
         </li>
       ));
     } else {
@@ -47,7 +47,7 @@ export default function ItemList({items, onDelete, onItemSelect}) {
           {items
             .filter((item) => item.category === category)
             .map((item) => (
-              <Item key={item.id} {...item} onDelete={onDelete} onSelect={onItemSelect} />
+              <Item key={item.id} {...item} onDelete={onDelete} onSelect={onSelect} />
             ))}
         </li>
       ));

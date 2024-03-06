@@ -11,21 +11,22 @@ export default function Page() {
   const [itemList, setItems] = useState(items);
   const [selectedItemName, setSelectedItemName] = useState("");
 
-  function handleItemSelect(item) { 
-    const name = item.name.split(",")[0].trim(); 
-    const cleanedName = name.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|�[�-�]|�[�-�]|[\u2011-\u26FF]|�[�-�])/g, ''); 
-    setSelectedItemName(cleanedName); 
-  }
+  const handleItemSelect = (id) => {
+    let name = itemList.find((item) => item.id === id).name;
+    let cleanedName = name.split(",")[0];
+    cleanedName = cleanedName.replace(/[^a-z0-9\s,]/gi, "").trim();
+    console.log(cleanedName);
+    setSelectedItemName(cleanedName);
+  };
 
   const addItem = (item) => {
     setItems([...itemList, item]);
-  }
+  };
 
-  const deleteItem = (id) => {  
+  const deleteItem = (id) => {
     setItems(itemList.filter((item) => item.id !== id));
-    alert( `ITEM DELETED: ${itemList.find((item) => item.id === id).name}`);
-  }
-
+    alert(`ITEM DELETED: ${itemList.find((item) => item.id === id).name}`);
+  };
 
   return (
     <body>
@@ -34,13 +35,15 @@ export default function Page() {
       </header>
       <main className="flex w-full">
         <div>
-          <ItemList items={itemList} onDelete={deleteItem} onItemSelect={handleItemSelect} />
-        </div>
-        <div>
           <NewItem onAddItem={addItem} />
+          <ItemList
+            items={itemList}
+            onDelete={deleteItem}
+            onSelect={handleItemSelect}
+          />
         </div>
-        <div>
-          <MealIdeas ingredient={selectedItemName}/>
+        <div className="">
+          <MealIdeas ingredient={selectedItemName} />
         </div>
       </main>
     </body>
