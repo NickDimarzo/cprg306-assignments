@@ -38,7 +38,7 @@ export default function MealIdeas({ingredient}) {
     }, [ingredient])
 
     return (
-        <div className="p-2 m-4 ml-8 bg-slate-900 max-w-sm w-full flex-row border-2 rounded-lg">
+        <div className="p-2 m-4 bg-slate-900 max-w-sm w-full flex-row border-2 rounded-lg">
             <div className="flex - justify-center">
                 <h1 className="font-bold text-3xl m-1">Meal Ideas</h1>
             </div>
