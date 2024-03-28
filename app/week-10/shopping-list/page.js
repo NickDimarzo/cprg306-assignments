@@ -49,17 +49,20 @@ export default function Page() {
     addNewUser(user.uid);
   };
 
-  useEffect(() => {
-    const checkUserAndLoadItems = async () => {
-      if (user) {
-        const existingUser = await fetchUser(user.uid);
-        if (!existingUser) {
-          addUser();
-        }
-        loadItems(user.uid);
+  const checkUserAndLoadItems = async () => {
+    if (user) {
+      const existingUser = await fetchUser(user.uid);
+      if (!existingUser) {
+        addUser();
+        console.log("USER ADDED")
       }
-    };
-    checkUserAndLoadItems();
+      loadItems(user.uid);
+      console.log("ITEMS LOADED")
+    }
+  };
+
+  useEffect(() => {
+     checkUserAndLoadItems();
   }, [itemList]);
 
   return (

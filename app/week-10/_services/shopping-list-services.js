@@ -3,7 +3,7 @@ import { collection, getDocs, addDoc, doc, getDoc } from "firebase/firestore";
 
 export const getItems = async (id) => {
     try{
-        const itemsCollectionRef = doc(db, "users", id, "items");
+        const itemsCollectionRef = collection(db, "users", id, "items");
         const itemsSnapShot = await getDocs(itemsCollectionRef);
 
         const mappedItems = itemsSnapShot.docs.map((postDoc) =>({
