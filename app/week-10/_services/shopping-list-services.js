@@ -1,5 +1,5 @@
 import { db } from "../_utils/firebase";
-import { collection, getDocs, addDoc, doc, getDoc } from "firebase/firestore";
+import { collection, getDocs, deleteDoc, addDoc, doc, getDoc } from "firebase/firestore";
 
 export const getItems = async (id) => {
     try{

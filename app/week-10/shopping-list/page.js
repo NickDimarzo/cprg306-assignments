@@ -62,8 +62,9 @@ export default function Page() {
   };
 
   useEffect(() => {
-     checkUserAndLoadItems();
-  }, [itemList]);
+    checkUserAndLoadItems();
+
+  }, [user]);
 
   return (
     <div className="">
